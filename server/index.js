@@ -20,7 +20,7 @@ const corsOptions = {
 }
 
 const server = http.createServer(app)
-const io = new Server(server, {
+const io = new Server(server,{
     cors: { origin: "*" },
   });
   
@@ -40,7 +40,7 @@ const io = new Server(server, {
     socket.on("disconnect", () => {
       console.log("User disconnected");
     });
-  });
+});
   
 app.use(cors(corsOptions))
 app.use(express.json())
