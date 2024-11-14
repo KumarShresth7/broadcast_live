@@ -7,3 +7,6 @@ export const createStream = (data, token) =>
   });
 
 export const getLiveStreams = () => axios.get(`${baseUrl}/api/streams/live`);
+
+export const getStream = (streamId) => axios.get(`${baseUrl}/api/streams/${streamId}`);
+

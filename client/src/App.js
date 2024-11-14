@@ -1,23 +1,19 @@
-import React from 'react'
-import './index.css'
-import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
-import Navbar from './components/Navbar'
-import Home from './pages/Home';
-import Register from './pages/Register';
-import Login from './pages/Login';
+import React from "react";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import HomePage from "./pages/Home";
+import StreamPage from "./pages/Stream";
+import ProfilePage from "./pages/Profile";
 
-const App = () => {
-  
+function App() {
   return (
     <Router>
-      <Navbar/>
       <Routes>
-        <Route path='/home' element={<Home/>}/>
-        <Route path='/register' element={<Register/>}/>
-        <Route path='/' element={<Login/>}/>
+        <Route path="/" element={<HomePage />} />
+        <Route path="/stream/:id" element={<StreamPage />} />
+        <Route path="/profile" element={<ProfilePage />} />
       </Routes>
     </Router>
-  )
+  );
 }
 
-export default App
+export default App;
