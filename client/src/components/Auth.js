@@ -14,8 +14,9 @@ const Auth = ({ setToken }) => {
     try {
       const response = isRegistering ? await register(form) : await login(form);
       setToken(response.data.token);
+      console.log('User created successfully')
     } catch (error) {
-      console.error("Authentication failed:", error);
+      console.error("Authentication failed:", error.response?.data || error.message);
     }
   };
 

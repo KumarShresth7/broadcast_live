@@ -13,12 +13,19 @@ const {Server} = require('socket.io')
 const bodyParser = require('body-parser')
 dotenv.config()
 
+
+app.use(bodyParser.json())
+app.use(express.json())
+connectDB();
+
 const corsOptions = {
     origin:`${baseUrl}`,
     methods: 'GET,HEAD,PUT,PATCH,POST,DELETE',
     allowedHeaders: ['Content-Type', 'Authorization'],
     optionsSuccessStatus: 200,
 }
+
+app.use(cors(corsOptions))
 
 const server = http.createServer(app)
 const io = new Server(server,{
@@ -43,10 +50,7 @@ const io = new Server(server,{
     });
 });
   
-app.use(cors(corsOptions))
-app.use(bodyParser.json())
-app.use(express.json())
-connectDB();
+
 
 app.use("/api/auth", authRoutes);
 app.use("/api/streams", streamRoutes);

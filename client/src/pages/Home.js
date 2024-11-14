@@ -7,7 +7,7 @@ const HomePage = () => {
 
   return (
     <div className="min-h-screen bg-gray-900 text-white flex flex-col items-center p-6">
-      <div>
+      <div className="flex flex-col items-center justify-center">
         {token ? (
           <Stream token={token} />
         ) : (
