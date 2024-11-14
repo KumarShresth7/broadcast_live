@@ -36,27 +36,42 @@ const ProfilePage = ({ token }) => {
     }
   };
 
-  if (!profile) return <p>Loading profile...</p>;
+  if (!profile) return <p className="text-white text-center">Loading profile...</p>;
 
   return (
-    <div>
-      <h2>Profile Page</h2>
-      <h3>Username: {profile.username}</h3>
-      <input
-        type="text"
-        value={username}
-        onChange={(e) => setUsername(e.target.value)}
-      />
-      <button onClick={handleUpdateProfile}>Update Profile</button>
+    <div className="min-h-screen bg-gray-900 text-white flex flex-col items-center p-6">
+      <h2 className="text-3xl font-bold mb-6">Profile Page</h2>
+      
+      <div className="w-full max-w-lg bg-gray-800 p-6 rounded-lg shadow-md">
+        <h3 className="text-2xl mb-2">Username</h3>
+        <input
+          type="text"
+          value={username}
+          onChange={(e) => setUsername(e.target.value)}
+          className="w-full p-2 mb-4 bg-gray-700 rounded text-white"
+        />
+        <button
+          onClick={handleUpdateProfile}
+          className="w-full p-2 bg-blue-600 hover:bg-blue-700 rounded mt-2"
+        >
+          Update Profile
+        </button>
 
-      <h3>Following</h3>
-      <ul>
-        {profile.following.map((user) => (
-          <li key={user._id}>
-            {user.username} <button onClick={() => handleFollow(user._id)}>Follow</button>
-          </li>
-        ))}
-      </ul>
+        <h3 className="text-2xl mt-8 mb-4">Following</h3>
+        <ul className="space-y-2">
+          {profile.following.map((user) => (
+            <li key={user._id} className="flex items-center justify-between bg-gray-700 p-2 rounded">
+              {user.username}
+              <button
+                onClick={() => handleFollow(user._id)}
+                className="bg-green-500 hover:bg-green-600 px-3 py-1 rounded"
+              >
+                Follow
+              </button>
+            </li>
+          ))}
+        </ul>
+      </div>
     </div>
   );
 };

@@ -1,16 +1,21 @@
-import React,{useState} from 'react'
-import Auth from '../components/Auth'
-import Stream from '../components/Stream'
+import React, { useState } from "react";
+import Auth from "../components/Auth";
+import Stream from "../components/Stream";
 
-const Home = () => {
-  const [token, setToken] = useState('')
+const HomePage = () => {
+  const [token, setToken] = useState(null);
 
   return (
-    <div>
-      <h1>Welcome to Twitch Clone</h1>
-      {token ? <Stream token={token} /> : <Auth setToken={setToken} />}
+    <div className="min-h-screen bg-gray-900 text-white flex flex-col items-center p-6">
+      <div>
+        {token ? (
+          <Stream token={token} />
+        ) : (
+          <Auth setToken={setToken} />
+        )}
+      </div>
     </div>
-  )
-}
+  );
+};
 
-export default Home
+export default HomePage;
