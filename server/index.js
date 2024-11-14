@@ -10,6 +10,7 @@ const streamRoutes = require('./routes/StreamRoutes')
 const userRoutes = require('./routes/userRoutes')
 const http = require('http')
 const {Server} = require('socket.io')
+const bodyParser = require('body-parser')
 dotenv.config()
 
 const corsOptions = {
@@ -43,6 +44,7 @@ const io = new Server(server,{
 });
   
 app.use(cors(corsOptions))
+app.use(bodyParser.json())
 app.use(express.json())
 connectDB();
 
