@@ -24,7 +24,7 @@ const Stream = ({ token }) => {
   };
 
   return (
-    <div className="min-h-screen flex flex-col items-center p-6 bg-gray-900 text-white">
+    <div className="min-h-screen flex flex-col justify-center items-center p-6 bg-gray-900 text-white">
       <div className="w-full max-w-lg mb-8">
         <h2 className="text-2xl font-semibold mb-4 text-center">Create Stream</h2>
         
